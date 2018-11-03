@@ -61,11 +61,11 @@ MKVERSION = 1.0
 
 # Determine operating system environment.
 # Possible values are (tested): Linux, FreeBSD (on 8.1), ...
-OSNAME =	$(shell uname)
+OSNAME =	Linux
 
 # Name of the program and source .ino (previously .pde) file.
 # No extension here (e.g. PROJECT = Blink).
-PROJECT ?=	Blink
+PROJECT ?= Hello
 
 # Project version. Only used for packing the source into an archive.
 VERSION ?=	1.0
@@ -73,8 +73,8 @@ VERSION ?=	1.0
 # Arduino model. E.g. atmega328, mega2560, uno.
 # Valid model names can be found in $(ARDUINO_DIR)/hardware/arduino/avr/boards.txt
 # This must be set to a valid model name.
-ARDUINO_MODEL ?= micro
-#ARDUINO_MODEL = uno
+#ARDUINO_MODEL ?= micro
+ARDUINO_MODEL = uno
 #ARDUINO_MODEL = nano328  # Is set to a 168 CPU
 #ARDUINO_MODEL = atmega2560
 
@@ -85,7 +85,7 @@ ARDUINO_MODEL ?= micro
 
 # Arduino variant (for Arduino 1.0+).
 # Directory containing the pins_arduino.h file.
-#ARDUINO_VARIANT=$(ARDUINO_DIR)/hardware/arduino/avr/variants/micro
+ARDUINO_VARIANT=$(ARDUINO_DIR)/hardware/archlinux-arduinio/avr/variants/micro
 
 # MCU architecture.
 # Currently hardcoded to avr (sam, etc. are unsupported.)

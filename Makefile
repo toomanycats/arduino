@@ -210,7 +210,7 @@ endif
 
 getboardvar = $(shell \
 	sed "/^\($(MODEL_PATTERN_MATCHING)\)\.$(1)=/ { s/.*=//; q }; d" \
-		$(ARDUINO_DIR)/hardware/arduino/avr/boards.txt \
+		$(ARDUINO_DIR)/hardware/archlinux-arduino/avr/boards.txt \
 	)
 
 UPLOAD_RATE ?=	$(call getboardvar,upload.speed)

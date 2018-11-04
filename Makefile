@@ -65,7 +65,7 @@ OSNAME =	Linux
 
 # Name of the program and source .ino (previously .pde) file.
 # No extension here (e.g. PROJECT = Blink).
-PROJECT ?= Hello
+PROJECT ?= led
 
 # Project version. Only used for packing the source into an archive.
 VERSION ?=	1.0
@@ -85,7 +85,7 @@ ARDUINO_MODEL = uno
 
 # Arduino variant (for Arduino 1.0+).
 # Directory containing the pins_arduino.h file.
-ARDUINO_VARIANT=$(ARDUINO_DIR)/hardware/archlinux-arduinio/avr/variants/micro
+ARDUINO_VARIANT=$(ARDUINO_DIR)/hardware/archlinux-arduinio/avr/variants/standard
 
 # MCU architecture.
 # Currently hardcoded to avr (sam, etc. are unsupported.)
@@ -102,7 +102,7 @@ PORT ?=		/dev/serial/by-id/*Arduino*
 # Arduino version (e.g. 23 for 0023, or 105 for 1.0.5).
 # Make sure this matches ARDUINO_DIR below!
 #ARDUINO = 	23
-ARDUINO ?= 	161
+ARDUINO ?=  187
 
 # Location of the official Arduino IDE.
 # E.g. /usr/local/arduino, or $(HOME)/arduino
@@ -115,10 +115,10 @@ ARDUINO_DIR ?=	/usr/share/arduino
 # ICSP programmers can also be used, for example: usbasp
 # If unset, a default is chosen based on ARDUINO_MODEL and ARDUINO_FAMILY.
 #AVRDUDE_PROGRAMMER = usbasp
-AVRDUDE_PROGRAMMER = avr109
+#AVRDUDE_PROGRAMMER = avr109
 
 # Arduino core sources.
-#ARDUINO_CORE ?=	$(ARDUINO_DIR)/hardware/arduino/avr/cores/arduino
+ARDUINO_CORE ?=	$(ARDUINO_DIR)/hardware/archlinux-arduino/avr/cores/arduino
 
 # Standard Arduino libraries used, e.g. EEPROM, LiquidCrystal.
 # Give the name of the directory containing the library source files.
@@ -134,8 +134,8 @@ endif
 
 # User libraries (in ~/sketchbook/libraries/).
 # Give the name of the directory containing the library source files.
-USER_LIBDIR ?=	./libraries
-USER_LIBS ?=
+#USER_LIBDIR ?=	./libraries
+#USER_LIBS ?=
 
 # Additional pre-compiled libraries to link with.
 # Always leave the math (m) library last!
@@ -344,7 +344,8 @@ CINCS = \
 	-I$(ARDUINO_VARIANT) \
 	$(ALIBDIRS:%=-I%) \
 	$(ULIBDIRS:%=-I%) \
-	-I.
+	-I. \
+	-I/usr/share/arduino/hardware/archlinux-arduino/avr/variants/standard
 
 
 ### Object and dependencies files.
